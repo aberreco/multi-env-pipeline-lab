@@ -16,7 +16,7 @@ jobs:
 
       - name: Check runner environment
         run: |
-          Write-Host "🖥️ Información del runner:"
+          Write-Host "Información del runner:"
           Write-Host "Hostname: $env:COMPUTERNAME"
           Write-Host "Sistema operativo: $env:OS"
           Write-Host "Usuario actual: $env:USERNAME"
@@ -24,20 +24,20 @@ jobs:
 
       - name: Verify kubectl access
         run: |
-          Write-Host "🔍 Verificando acceso a Kubernetes..."
+          Write-Host "Verificando acceso a Kubernetes..."
           kubectl version --client
           kubectl config current-context
 
       - name: List Kubernetes namespaces
         run: |
-          Write-Host "📦 Namespaces de Kubernetes:"
+          Write-Host "Namespaces de Kubernetes:"
           kubectl get namespaces
 
       - name: Check our environments
         run: |
-          Write-Host "✅ Comprobando los entornos del laboratorio:"
+          Write-Host "Comprobando los entornos del laboratorio:"
           kubectl get namespace dev,staging,prod
 
       - name: Success!
         run: |
-          Write-Host "🎉 ¡El runner funciona y tiene acceso al clúster!"
+          Write-Host "El runner funciona y tiene acceso al clúster!"
