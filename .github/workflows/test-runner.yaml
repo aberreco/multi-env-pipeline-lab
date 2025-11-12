@@ -18,8 +18,8 @@ jobs:
         run: |
           Write-Host "🖥️ Información del runner:"
           Write-Host "Hostname: $env:COMPUTERNAME"
-          Write-Host "OS: $env:OS"
-          Write-Host "Usuario: $env:USERNAME"
+          Write-Host "Sistema operativo: $env:OS"
+          Write-Host "Usuario actual: $env:USERNAME"
           Write-Host "Directorio de trabajo: $(Get-Location)"
 
       - name: Verify kubectl access
