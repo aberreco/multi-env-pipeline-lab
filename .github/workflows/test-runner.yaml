@@ -36,7 +36,7 @@ jobs:
       - name: Check our environments
         run: |
           Write-Host "Comprobando los entornos del laboratorio:"
-          kubectl get namespace dev,staging,prod
+          kubectl get namespace dev staging prod
 
       - name: Success!
         run: |
