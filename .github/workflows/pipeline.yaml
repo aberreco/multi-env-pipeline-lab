@@ -12,7 +12,7 @@ on:
 jobs:
   # Job 1: Desplegar a Dev (automático)
   deploy-dev:
-    name: "🚀 Deploy a Dev"
+    name: "Deploy a Dev"
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: self-hosted
     environment:
@@ -24,6 +24,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Change to repository directory
+        run: |
+          Set-Location $env:GITHUB_WORKSPACE
+          Write-Host "Directorio actual: $(Get-Location)"
 
       - name: Deploy to Dev
         run: |
@@ -46,7 +51,7 @@ jobs:
 
   # Job 2: Desplegar a Staging
   deploy-staging:
-    name: "🚀 Deploy a Staging"
+    name: "Deploy a Staging"
     needs: deploy-dev
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: self-hosted
@@ -59,6 +64,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Change to repository directory
+        run: |
+          Set-Location $env:GITHUB_WORKSPACE
+          Write-Host "Directorio actual: $(Get-Location)"
 
       - name: Deploy to Staging
         run: |
@@ -81,7 +91,7 @@ jobs:
 
   # Job 3: Desplegar a Producción (requiere aprobación manual)
   deploy-prod:
-    name: "🚀 Deploy a Producción"
+    name: "Deploy a Producción"
     needs: deploy-staging
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: self-hosted
@@ -94,6 +104,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Change to repository directory
+        run: |
+          Set-Location $env:GITHUB_WORKSPACE
+          Write-Host "Directorio actual: $(Get-Location)"
 
       - name: Deploy to Production
         run: |
