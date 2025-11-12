@@ -16,7 +16,7 @@ jobs:
 
       - name: Check runner environment
         run: |
-          Write-Host "Información del runner:"
+          Write-Host "Informacion del runner:"
           Write-Host "Hostname: $env:COMPUTERNAME"
           Write-Host "Sistema operativo: $env:OS"
           Write-Host "Usuario actual: $env:USERNAME"
@@ -40,4 +40,4 @@ jobs:
 
       - name: Success!
         run: |
-          Write-Host "El runner funciona y tiene acceso al clúster!"
+          Write-Host "El runner funciona y tiene acceso al cluster."
