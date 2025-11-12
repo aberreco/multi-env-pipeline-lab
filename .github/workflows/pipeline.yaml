@@ -27,11 +27,14 @@ jobs:
 
       - name: Change to repository directory
         run: |
-          Set-Location $env:GITHUB_WORKSPACE
+          $repo = Join-Path $env:GITHUB_WORKSPACE "multi-env-pipeline-lab"
+          Set-Location $repo
           Write-Host "Directorio actual: $(Get-Location)"
 
       - name: Deploy to Dev
         run: |
+          $repo = Join-Path $env:GITHUB_WORKSPACE "multi-env-pipeline-lab"
+          Set-Location $repo
           Write-Host "Desplegando en el entorno dev..."
           kubectl apply -k environments/dev
 
@@ -67,11 +70,14 @@ jobs:
 
       - name: Change to repository directory
         run: |
-          Set-Location $env:GITHUB_WORKSPACE
+          $repo = Join-Path $env:GITHUB_WORKSPACE "multi-env-pipeline-lab"
+          Set-Location $repo
           Write-Host "Directorio actual: $(Get-Location)"
 
       - name: Deploy to Staging
         run: |
+          $repo = Join-Path $env:GITHUB_WORKSPACE "multi-env-pipeline-lab"
+          Set-Location $repo
           Write-Host "Desplegando en el entorno staging..."
           kubectl apply -k environments/staging
 
@@ -107,11 +113,14 @@ jobs:
 
       - name: Change to repository directory
         run: |
-          Set-Location $env:GITHUB_WORKSPACE
+          $repo = Join-Path $env:GITHUB_WORKSPACE "multi-env-pipeline-lab"
+          Set-Location $repo
           Write-Host "Directorio actual: $(Get-Location)"
 
       - name: Deploy to Production
         run: |
+          $repo = Join-Path $env:GITHUB_WORKSPACE "multi-env-pipeline-lab"
+          Set-Location $repo
           Write-Host "Desplegando en el entorno de producción..."
           kubectl apply -k environments/prod
 
